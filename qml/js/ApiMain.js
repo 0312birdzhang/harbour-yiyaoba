@@ -38,7 +38,6 @@ function sendWebRequest(url, callback, method, postdata) {
 var listmodel;
 function getlist(type){
     var url=apiurl+type;
-    console.log("url:"+url);
     sendWebRequest(url,loadlist,"GET","");
 }
 function loadlist(oritxt){
@@ -52,6 +51,20 @@ function loadlist(oritxt){
     signalcenter.loadFinished();
 }
 
+
+var detailmodel;
+function getdetail(type){
+    var url=apiurl+type;
+    sendWebRequest(url,loaddetail,"GET","");
+}
+function loaddetail(oritxt){
+    var obj=JSON.parse(oritxt);
+    if(obj.success){
+        detailmodel.clear()
+        detailmodel.append(obj.yi18)
+    }
+    signalcenter.loadFinished();
+}
 
 var showmodel;
 function getshow(type){
@@ -94,3 +107,5 @@ function loadcate(oritxt){
         catemodel.append(obj.yi18[i]);
     }
 }
+
+

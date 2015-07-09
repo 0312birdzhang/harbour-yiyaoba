@@ -127,6 +127,9 @@ Page {
                     case "cook":
                         pageStack.push(Qt.resolvedUrl("../cook/cooklist.qml"))
                         break;
+                    case "top":
+                        pageStack.push(Qt.resolvedUrl("../top/toplist.qml"));
+                        break;
                     default:
                         pageStack.push(Qt.resolvedUrl(""));
 

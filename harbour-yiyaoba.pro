@@ -45,7 +45,9 @@ OTHER_FILES += qml/harbour-yiyaoba.qml \
     qml/cook/cooklist.qml \
     qml/cook/cookdetail.qml \
     qml/components/ImagePage.qml \
-    qml/cook/cookcategory.qml
+    qml/cook/cookcategory.qml \
+    qml/top/toplist.qml \
+    qml/top/topdetail.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

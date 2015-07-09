@@ -109,4 +109,27 @@
         <translation>未知问题</translation>
     </message>
 </context>
+<context>
+    <name>toplist</name>
+    <message>
+        <source>topnews</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>datetime:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>views count:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from: </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

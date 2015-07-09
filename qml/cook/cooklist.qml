@@ -135,9 +135,9 @@ Page {
                 CacheImage{
                     id:foodpic
                     fillMode: Image.Stretch;
-                    width:  implicitWidth
-                    height: implicitHeight
-                    cacheurl: " http://www.yi18.net/"+img
+                    width:  parent.width / 2 -Theme.paddingMedium
+                    height: cookpage.height / 3
+                    cacheurl: "http://www.yi18.net/"+img
                     anchors{
                         top:parent.top
                         left:parent.left
