@@ -47,7 +47,11 @@ OTHER_FILES += qml/harbour-yiyaoba.qml \
     qml/components/ImagePage.qml \
     qml/cook/cookcategory.qml \
     qml/top/toplist.qml \
-    qml/top/topdetail.qml
+    qml/top/topdetail.qml \
+    qml/ask/*.qml \
+    qml/news/*.qml \
+    qml/drug/*.qml \
+
 
 # to disable building translations every time, comment out the
 # following CONFIG line

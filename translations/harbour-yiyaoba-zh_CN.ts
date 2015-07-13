@@ -65,10 +65,40 @@
     </message>
 </context>
 <context>
+    <name>askdetail</name>
+    <message>
+        <source>Detail</source>
+        <translation type="obsolete">详情</translation>
+    </message>
+    <message>
+        <source>tags :</source>
+        <translation type="obsolete">标签:</translation>
+    </message>
+</context>
+<context>
+    <name>asklist</name>
+    <message>
+        <source>CookBook</source>
+        <translation type="obsolete">菜谱</translation>
+    </message>
+    <message>
+        <source>Hide Search</source>
+        <translation>隐藏搜索框</translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation>显示搜索框</translation>
+    </message>
+    <message>
+        <source>AskList</source>
+        <translation>提问</translation>
+    </message>
+</context>
+<context>
     <name>cookdetail</name>
     <message>
         <source>Detail</source>
-        <translation>详情</translation>
+        <translation type="vanished">详情</translation>
     </message>
     <message>
         <source>tags :</source>
@@ -83,11 +113,26 @@
     </message>
     <message>
         <source>Hide Search</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏搜索框</translation>
     </message>
     <message>
         <source>Show Search</source>
+        <translation>显示搜索框</translation>
+    </message>
+</context>
+<context>
+    <name>druglist</name>
+    <message>
+        <source>drugList</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Search</source>
+        <translation type="unfinished">隐藏搜索框</translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation type="unfinished">显示搜索框</translation>
     </message>
 </context>
 <context>
@@ -110,26 +155,41 @@
     </message>
 </context>
 <context>
+    <name>newslist</name>
+    <message>
+        <source>newsList</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Search</source>
+        <translation type="unfinished">隐藏搜索框</translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation type="unfinished">显示搜索框</translation>
+    </message>
+</context>
+<context>
     <name>toplist</name>
     <message>
         <source>topnews</source>
-        <translation type="unfinished"></translation>
+        <translation>热门新闻</translation>
     </message>
     <message>
         <source>refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>刷新</translation>
     </message>
     <message>
         <source>datetime:</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">日期:</translation>
     </message>
     <message>
         <source>views count:</source>
-        <translation type="unfinished"></translation>
+        <translation>查看数:</translation>
     </message>
     <message>
         <source>from: </source>
-        <translation type="unfinished"></translation>
+        <translation>来自:</translation>
     </message>
 </context>
 </TS>

@@ -88,11 +88,22 @@
     </message>
 </context>
 <context>
-    <name>cookdetail</name>
+    <name>asklist</name>
     <message>
-        <source>Detail</source>
+        <source>Hide Search</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Show Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AskList</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>cookdetail</name>
     <message>
         <source>tags :</source>
         <translation type="unfinished"></translation>
@@ -102,6 +113,21 @@
     <name>cooklist</name>
     <message>
         <source>CookBook</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>druglist</name>
+    <message>
+        <source>drugList</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -133,6 +159,21 @@
     </message>
 </context>
 <context>
+    <name>newslist</name>
+    <message>
+        <source>newsList</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>toplist</name>
     <message>
         <source>topnews</source>
@@ -140,10 +181,6 @@
     </message>
     <message>
         <source>refresh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>datetime:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

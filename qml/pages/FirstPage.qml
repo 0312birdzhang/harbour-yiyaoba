@@ -130,6 +130,15 @@ Page {
                     case "top":
                         pageStack.push(Qt.resolvedUrl("../top/toplist.qml"));
                         break;
+                    case "ask":
+                        pageStack.push(Qt.resolvedUrl("../ask/asklist.qml"));
+                        break;
+                    case "news":
+                        pageStack.push(Qt.resolvedUrl("../news/newslist.qml"));
+                        break;
+                    case "drug":
+                        pageStack.push(Qt.resolvedUrl("../drug/druglist.qml"));
+                        break;
                     default:
                         pageStack.push(Qt.resolvedUrl(""));
 

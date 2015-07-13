@@ -34,12 +34,12 @@ import "../components"
 import "../js/ApiMain.js" as Main
 
 Page {
-    id: cookpage
+    id: drugpage
     property int pagenum:1
-    property var cookcateid
+    property var drugcateid
     property bool showsearch: false
     Component.onCompleted: {
-        Main.listmodel = listmodel;
+        Main.listmodel = druglistmodel;
         getlist()
 
     }
@@ -48,41 +48,41 @@ Page {
             searchfield.forceActiveFocus()
         }else{
 
-            cookpage.focus=true
+            drugpage.focus=true
         }
     }
 
     function getlist(){
-        if(cookcateid){
-            Main.getlist("cook/list?page="+pagenum+"&id="+cookcateid);
+        if(drugcateid){
+            Main.getlist("drug/list?page="+pagenum+"&id="+drugcateid);
         }else{
-            Main.getlist("cook/list?page="+pagenum);
+            Main.getlist("drug/list?page="+pagenum);
         }
     }
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
             if (pageStack._currentContainer.attachedContainer == null) {
-                pageStack.pushAttached(Qt.resolvedUrl("cookcategory.qml"))
+                pageStack.pushAttached(Qt.resolvedUrl("drugcategory.qml"))
             }
         }
     }
     BusyIndicator {
         id: busyIndicator
         anchors.centerIn: parent
-        running: listmodel.count == 0|!PageStatus.Active
+        running: druglistmodel.count == 0|!PageStatus.Active
         size: BusyIndicatorSize.Large
     }
-    ListModel{id:listmodel}
+    ListModel{id:druglistmodel}
 
     Column {
         id: headerContainer
 
-        width: cookpage.width
+        width: drugpage.width
 
         PageHeader {
             id:header
-            title: qsTr("CookBook")
+            title: qsTr("drugList")
         }
         SearchField {
             id: searchfield
@@ -90,14 +90,14 @@ Page {
             width: parent.width
             y:showsearch?(header.y + Theme.paddingMedium):0
             Binding {
-                target: cookpage
+                target: drugpage
                 property: "searchString"
                 value: searchfield.text
             }
             EnterKey.onClicked: {
-                cookcateid = undefined;
-                listmodel.clear();
-                Main.getlist("cook/search?keyword="+searchfield.text);
+                drugcateid = undefined;
+                druglistmodel.clear();
+                Main.getlist("drug/search?keyword="+searchfield.text);
                 parent.focus=true
             }
         }
@@ -107,7 +107,7 @@ Page {
 
     SilicaListView {
             id: listView
-            model: listmodel
+            model: druglistmodel
             currentIndex: -1
             anchors.fill: parent
 
@@ -130,63 +130,58 @@ Page {
             }
 
             delegate: BackgroundItem{
-                id:showlist
-                height: (foodpic.height>(foodname.height+summary.height)?foodpic.height:(foodname.height+summary.height))+Theme.paddingMedium*2
-                CacheImage{
-                    id:foodpic
-                    fillMode: Image.Stretch;
-                    width:  parent.width / 2 -Theme.paddingMedium
-                    height: cookpage.height / 3
-                    cacheurl: "http://www.yi18.net/"+img
-                    anchors{
-                        top:parent.top
-                        left:parent.left
-                        margins: Theme.paddingMedium
+                    id:showlist
+                    height: imgID.height>drugtit.height?(imgID.height+Theme.paddingMedium *2):(drugtit.height + Theme.paddingMedium *2 )
+
+                    Text {
+                        id:drugtit
+                        wrapMode: Text.WordWrap
+                        width: parent.width
+                        font.bold:true;
+                        text:name?name:title
+                        color:Theme.highlightColor
+                        anchors{
+                            top:parent.top
+                            right:imgID.left
+                            left: parent.left
+                            margins: Theme.paddingMedium
+                        }
+
+                    }
+                    Label{
+                        id:factoryID
+                        wrapMode: Text.WordWrap
+                        font.pixelSize:Theme.fontSizeSmall
+                        opacity:0.8
+                        text:factory?factory:""
+                        anchors{
+                            top:drugtit.bottom
+                            right:imgID.left
+                            left: parent.left
+                            margins: Theme.paddingMedium
+                        }
                     }
 
-                }
-                Text {
-                    id:foodname
-                    wrapMode: Text.WordWrap
-                    width: parent.width-foodpic.width
-                    font.bold:true;
-                    text:name
-                    color:Theme.highlightColor
-                    anchors{
-                        top:parent.top
-                        right:parent.right
-                        left: foodpic.right
-                        margins: Theme.paddingMedium
+                    CacheImage{
+                        id:imgID
+                        fillMode: Image.Stretch;
+                        width:  Screen.width/3
+                        height: Screen.width/3
+                        opencache: image?true:(img?true:false)
+                        cacheurl:image?"http://www.yi18.net/"+image:(img?"http://www.yi18.net/"+img:"image://theme/icon-m-refresh")
+                        anchors {
+                            top:parent.top
+                            right: parent.right
+                            margins: Theme.paddingMedium
+                        }
                     }
 
-                }
-                Label{
-                    id:summary
-                    width: parent.width - foodpic.width
-                    visible: food?true:false
-                    wrapMode: Text.WordWrap
-                    text:"<br/>材料:<br/>"+food
-                    color: cookpage.highlighted ? Theme.highlightColor : Theme.primaryColor
-                    font {
-                        pixelSize: Theme.fontSizeSmall
-                        family: Theme.fontFamilyHeading
-                    }
-                    anchors{
-                        top:foodname.bottom
-                        left:foodpic.right
-                        right:parent.right
-                        margins: Theme.paddingMedium
-                    }
-
-                }
 
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("cookdetail.qml"),
+                    pageStack.push(Qt.resolvedUrl("drugdetail.qml"),
                                    {
-                                       "cookid":id,
-                                       "cookimg":foodpic.source,
-                                       "remoteurl":img,
-                                       "cookname":name
+                                       "drugid":id,
+                                       "drugtitle":name?name:title
                                    })
                 }
             }
@@ -194,9 +189,9 @@ Page {
             footer: Component{
                 Item {
                     id: footerComponent
+                    visible: !busyIndicator.running
                     anchors { left: parent.left; right: parent.right;topMargin: Theme.paddingMedium }
                     height:  Theme.itemSizeMedium
-                    visible: !busyIndicator.running
                     signal clicked()
                     Row {
                         id:footItem
@@ -207,7 +202,7 @@ Page {
                             visible: pagenum>1
                             onClicked: {
                                 pagenum--;
-                                listmodel.clear();
+                                druglistmodel.clear();
                                 getlist();
                             }
                         }
@@ -216,7 +211,7 @@ Page {
                             text: "下一页"
                             onClicked: {
                                 pagenum = pagenum+1;
-                                listmodel.clear();
+                                druglistmodel.clear();
                                 getlist();
                             }
                         }

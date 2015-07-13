@@ -34,29 +34,87 @@ import "../components"
 import "../js/ApiMain.js" as Main
 
 Page {
-    property var id
-    property string toptitle
-    id: deatilpage
+    property var drugid
+    property string drugtitle
+
+    id: detailpage
     Component.onCompleted: {
-        Main.detailmodel = newdetailModel;
-        Main.getdetail("top/show?id="+id);
+        Main.detailmodel = drugdetailmodel;
+        Main.getdetail("drug/show?id="+drugid);
 
     }
 
-    ListModel{id:newdetailModel}
+    ListModel{id:drugdetailmodel}
+
+
+//    Label{
+//        id:classtag
+//        //width: parent.width
+//        font.pixelSize:Theme.fontSizeExtraSmall
+//        wrapMode: Text.WordWrap
+//        text:"tag: "+classname
+//        anchors{
+//            top:header.bottom
+//            right:parent.right
+//            margins: Theme.paddingMedium
+//        }
+//    }
+
+
     SilicaListView {
             id:view
-            anchors.fill:parent
-            header:PageHeader {
+            anchors.fill: parent
+            header: PageHeader {
                 id:header
-                title: toptitle
+                title:drugtitle
                 _titleItem.font.pixelSize: Theme.fontSizeSmall
             }
-            model : newdetailModel
+            currentIndex: -1
+            model : drugdetailmodel
             clip: true
             delegate:Item{
                 height:childrenRect.height + Theme.paddingMedium *4
                 width:parent.width
+                Label{
+                    id:infoID
+                    text:"["+ANumber+"] "+PType
+                    wrapMode: Text.WordWrap
+                    width: parent.width
+                    font.pixelSize:Theme.fontSizeSmall
+                    opacity: 0.9
+                    anchors{
+                        top:parent.top
+                        left:parent.left
+                        right:parent.right
+                        margins: Theme.paddingMedium
+                    }
+                }
+                Label{
+                    id:pri
+                    text:factory/*+ "<br/> 售价 :"+price*/
+                    font.pixelSize:Theme.fontSizeExtraSmall
+                    anchors{
+                        top:infoID.bottom
+                        left:parent.left
+                        right:parent.right
+                        margins: Theme.paddingMedium
+                    }
+
+                }
+                Label{
+                    id:tagID
+                    text:"作用: "+tag
+                    width: parent.width
+                    font.pixelSize:Theme.fontSizeSmall
+                    wrapMode: Text.WordWrap
+                    anchors{
+                        top:pri.bottom
+                        left:parent.left
+                        right:parent.right
+                        margins: Theme.paddingMedium
+                    }
+                }
+
                 Label {
                     wrapMode: Text.WordWrap
                     width: parent.width
@@ -66,7 +124,7 @@ Page {
                     font.letterSpacing: Theme.paddingSmall
                     color: view.highlighted ? Theme.highlightColor : Theme.primaryColor
                     anchors {
-                        top:parent.top
+                        top:tagID.bottom
                         left: parent.left
                         right:parent.right
                         margins: Theme.paddingMedium

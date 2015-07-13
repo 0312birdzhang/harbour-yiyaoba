@@ -33,23 +33,22 @@ import Sailfish.Silica 1.0
 
 Page{
     id:showfoodclass
-    property string cookclass:"0"
 
     Component.onCompleted: {
-        Main.catemodel = cookcategoryModel;
-        Main.getcate("cook/cookclass?id="+cookclass)
+        Main.catemodel = askcategoryModel;
+        Main.getcate("ask/askclass")
     }
     ListModel {
-        id:cookcategoryModel
+        id:askcategoryModel
     }
 
     SilicaGridView {
         id: gridView
         header:PageHeader {
             id:header
-            title: "食谱分类"
+            title: "问题分类"
         }
-        model: cookcategoryModel
+        model: askcategoryModel
         anchors.fill: parent
         currentIndex: -1
         cellWidth: gridView.width / 3
@@ -80,8 +79,7 @@ Page{
             }
 
             onClicked :{
-                cookclass == "0"?pageStack.push(Qt.resolvedUrl("cookcategory.qml"),{"cookclass":id}):
-                                  pageStack.push(Qt.resolvedUrl("cooklist.qml"),{"cookcateid":id})
+                     pageStack.push(Qt.resolvedUrl("asklist.qml"),{"askcateid":id})
             }
 
         }

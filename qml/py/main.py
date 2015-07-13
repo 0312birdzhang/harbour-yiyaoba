@@ -1,6 +1,8 @@
 import os,sys,shutil
 import pyotherside
 import subprocess
+import urllib
+import urllib.request
 from basedir import *
 
 cachePath=XDG_CACHE_HOME+"/harbour-yiyaoba/yiyao/"
@@ -41,9 +43,7 @@ def cacheImg(url,md5name):
 
 """
 def downloadImg(downname,downurl):
-    p = subprocess.Popen("curl -o "+downname+" "+downurl,shell=True)
-    #0则安装成功
-    retval = p.wait()
+    urllib.request.urlretrieve(downurl,downname)
 
 def clearImg():
     shutil.rmtree(cachePath)

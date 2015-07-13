@@ -38,7 +38,7 @@ function sendWebRequest(url, callback, method, postdata) {
 var listmodel;
 function getlist(type){
     var url=apiurl+type;
-    sendWebRequest(url,loadlist,"GET","");
+    sendWebRequest(url,loadlist,"POST","");
 }
 function loadlist(oritxt){
     var obj=JSON.parse(oritxt);
@@ -46,6 +46,7 @@ function loadlist(oritxt){
         listmodel.clear();
     }
     for(var i in obj.yi18){
+
         listmodel.append(obj.yi18[i]);
     }
     signalcenter.loadFinished();
@@ -93,6 +94,8 @@ function loadcookdetail(oritxt){
          cooktag = obj.yi18.tag;
          signalcenter.loadFinished();
         }
+
+//分类
 var catemodel;
 function getcate(type){
     var url=apiurl+type;
@@ -108,4 +111,19 @@ function loadcate(oritxt){
     }
 }
 
+//健康一问
+var askdetailmodel;
+function getanswer(type){
+    var url=apiurl+type;
+    sendWebRequest(url,loadanswer,"GET","");
+}
+function loadanswer(oritxt){
+    var obj=JSON.parse(oritxt);
+    if(obj.success == "true"){
+        askdetailmodel.clear();
+    }
+    for(var i in obj.yi18.answer){
+        askdetailmodel.append(obj.yi18.answer[i]);
+    }
+}
 

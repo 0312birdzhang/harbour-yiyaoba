@@ -44,6 +44,13 @@ Page{
          Main.getlist("top/list?page="+pagenum);
     }
 
+    BusyIndicator{
+        id:busyIndicator
+        running: !PageStatus.Active
+        size:BusyIndicatorSize.Large
+        anchors.fill: parent
+    }
+
     ListModel {  id:listModel }
     SilicaListView {
         id:view
@@ -66,7 +73,7 @@ Page{
         delegate:BackgroundItem{
             id:showlist
             width: parent.width
-            height: imgID.height>(titleID.height +dateID.height)?(imgID.height+ Theme.paddingSmall*6):(titleID.height +dateID.height+ Theme.paddingSmall*6)
+            height: imgID.height>(titleID.height)?(imgID.height+ Theme.paddingSmall*6):(titleID.height + Theme.paddingSmall*6)
             Label{
                 id:titleID
                 text:title
@@ -90,19 +97,6 @@ Page{
                 cacheurl:"http://www.yi18.net/"+img
                 anchors {
                     right: parent.right
-                    margins: Theme.paddingSmall
-                }
-            }
-
-            Label{
-                id:dateID
-                text:qsTr("datetime:")+Format.formatDate(time, Formatter.TimepointRelative)
-                font.pixelSize: Theme.fontSizeSmall
-                font.italic: true
-                horizontalAlignment: Text.AlignRight
-                anchors {
-                    left: fromID.right
-                    bottom:parent.bottom
                     margins: Theme.paddingSmall
                 }
             }
@@ -133,7 +127,8 @@ Page{
 
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("topdetail.qml"),{
-                                   "id":id
+                                   "id":id,
+                                   "toptitle":title
                                })
             }
         }
@@ -146,7 +141,7 @@ Page{
                 id: footerComponent
                 anchors { left: parent.left; right: parent.right }
                 height: visible ? Theme.itemSizeMedium : 0
-                visible:listModel.count > 4
+                visible: !busyIndicator.running
                 signal clicked()
                 Item {
                     id:footItem
@@ -167,10 +162,6 @@ Page{
     }
 
 
-    BusyIndicator{
-        running: !PageStatus.Active
-        size:BusyIndicatorSize.Large
-        anchors.fill: parent
-    }
+
 
 }

@@ -61,7 +61,8 @@ Page{
         anchors.fill: parent
         PageHeader{
             id:header
-            title:qsTr("Detail")
+            title:cookname
+            _titleItem.font.pixelSize: Theme.fontSizeSmall
         }
         contentHeight: tagname.height + detail.height +cookpic.height + Theme.paddingLarge * 10
         Label{
@@ -84,6 +85,8 @@ Page{
            width: parent.width
            wrapMode: Text.WordWrap
            textFormat: Text.RichText
+           font.pixelSize:Theme.fontSizeSmall
+           font.letterSpacing: Theme.paddingSmall
            anchors{
                top:tagname.bottom
                left:parent.left

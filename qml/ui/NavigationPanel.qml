@@ -52,7 +52,7 @@ Panel {
                 fillMode: Image.PreserveAspectCrop
                 opacity: 0.6
                 asynchronous: true
-                source: "../pics/background.jpg"
+                source: "../pics/background.png"
                 onStatusChanged: {
                     if (cover.status == Image.Ready) {
                         //util.saveRemoteImage(userInfoObject.usrInfo.cover_image_phone)

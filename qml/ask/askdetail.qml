@@ -34,25 +34,44 @@ import "../components"
 import "../js/ApiMain.js" as Main
 
 Page {
-    property var id
-    property string toptitle
-    id: deatilpage
+    property var askid
+    property string classname
+    property string asktitle
+
+    id: detailpage
     Component.onCompleted: {
-        Main.detailmodel = newdetailModel;
-        Main.getdetail("top/show?id="+id);
+        Main.askdetailmodel = askdetailmodel;
+        Main.getanswer("ask/show?id="+askid);
 
     }
 
-    ListModel{id:newdetailModel}
+    ListModel{id:askdetailmodel}
+
+
+//    Label{
+//        id:classtag
+//        //width: parent.width
+//        font.pixelSize:Theme.fontSizeExtraSmall
+//        wrapMode: Text.WordWrap
+//        text:"tag: "+classname
+//        anchors{
+//            top:header.bottom
+//            right:parent.right
+//            margins: Theme.paddingMedium
+//        }
+//    }
+
+
     SilicaListView {
             id:view
-            anchors.fill:parent
-            header:PageHeader {
+            anchors.fill: parent
+            header: PageHeader {
                 id:header
-                title: toptitle
+                title:asktitle
                 _titleItem.font.pixelSize: Theme.fontSizeSmall
             }
-            model : newdetailModel
+            currentIndex: -1
+            model : askdetailmodel
             clip: true
             delegate:Item{
                 height:childrenRect.height + Theme.paddingMedium *4
