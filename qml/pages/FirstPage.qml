@@ -124,6 +124,9 @@ Page {
                 onClicked :{
                     console.log("apid:"+apid);
                     switch(apid){
+                    case "disease":
+                        pageStack.push(Qt.resolvedUrl("../disease/diseaselist.qml"));
+                        break;
                     case "cook":
                         pageStack.push(Qt.resolvedUrl("../cook/cooklist.qml"))
                         break;
@@ -138,6 +141,9 @@ Page {
                         break;
                     case "drug":
                         pageStack.push(Qt.resolvedUrl("../drug/druglist.qml"));
+                        break;
+                    case "sex":
+                        pageStack.push(Qt.resolvedUrl("../sex/sexlist.qml"));
                         break;
                     default:
                         pageStack.push(Qt.resolvedUrl(""));

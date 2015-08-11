@@ -87,6 +87,13 @@ var dataclass={
             "id": "redianreci",
             "apid":"top"
         }
+    ],
+    "meinv":[
+        {
+            "name":"美女图片",
+            "id":"meinv",
+            "apid":"sex"
+        }
     ]
 }
 

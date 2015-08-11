@@ -127,3 +127,53 @@ function loadanswer(oritxt){
     }
 }
 
+//美女图片,单独api
+var sexapi = "http://www.tngou.net/tnfs/api/"
+
+var sexlistmodel;
+function getsexlist(type){
+    var url=sexapi+type;
+    sendWebRequest(url,loadsexlist,"POST","");
+}
+function loadsexlist(oritxt){
+    var obj=JSON.parse(oritxt);
+
+    for(var i in obj.tngou){
+        sexlistmodel.append(obj.tngou[i]);
+    }
+    signalcenter.loadFinished();
+}
+
+var sexdetailmodel;
+function getsexdetail(type){
+    var url=sexapi+type;
+    sendWebRequest(url,loadsexdetail,"GET","");
+}
+function loadsexdetail(oritxt){
+    var obj=JSON.parse(oritxt);
+
+    sexdetailmodel.clear()
+
+    for(var i in obj.list){
+        sexdetailmodel.append(obj.list[i]);
+    }
+    signalcenter.loadFinished();
+}
+
+//分类
+var sexcatemodel;
+var sexcate = [
+                {"description":"……","id":1,"keywords":"……","name":"性感美女","seq":1,"title":"……"},
+                {"description":"……","id":2,"keywords":"……","name":"韩日美女","seq":2,"title":"……"},
+                {"description":"……","id":3,"keywords":"……","name":"丝袜美腿","seq":3,"title":"……"},
+                {"description":"……","id":4,"keywords":"……","name":"美女照片","seq":4,"title":"……"},
+                {"description":"……","id":5,"keywords":"……","name":"美女写真","seq":5,"title":"……"},
+                {"description":"……","id":6,"keywords":"……","name":"清纯美女","seq":6,"title":"……"},
+                {"description":"……","id":2,"keywords":"……","name":"性感车模","seq":7,"title":"……"}
+            ];
+
+function getsexcate(){
+    for(var i in sexcate){
+        sexcatemodel.append(sexcate[i]);
+    }
+}

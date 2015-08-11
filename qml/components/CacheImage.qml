@@ -20,7 +20,7 @@ import "../js/md5.js" as MD5
                  var imglist=cacheurl.split(".");
                  var imgtype=imglist[imglist.length-1];
                  if(opencache){
-                    call('main.cacheImg',[cacheurl,MD5.hex_md5(cacheurl)+"."+imgtype],function(result){
+                    call('main.cacheImg',[cacheurl,MD5.hex_md5(cacheurl)],function(result){
                          root.source = result;
                         waitingIcon.visible = false
                     });

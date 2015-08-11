@@ -27,15 +27,65 @@
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-
 import QtQuick 2.0
+import "../js/ApiMain.js" as Main
 import Sailfish.Silica 1.0
 
-CoverBackground {
-    CoverPlaceholder{
-        text:qsTr("Yiyao")
-        icon.source: Qt.resolvedUrl("../pics/harbour-yiyaoba.png")
+Page{
+    id:showsexclass
+
+    Component.onCompleted: {
+        Main.sexcatemodel = sexcategoryModel;
+        Main.getsexcate()
     }
+    ListModel {
+        id:sexcategoryModel
+    }
+
+    SilicaGridView {
+        id: gridView
+        header:PageHeader {
+            id:header
+            title: "妹子分类"
+        }
+        model: sexcategoryModel
+        anchors.fill: parent
+        currentIndex: -1
+        cellWidth: gridView.width / 3
+        cellHeight: cellWidth
+
+        delegate: BackgroundItem {
+            id: rectangle
+            width: gridView.cellWidth
+            height: gridView.cellHeight
+
+            OpacityRampEffect {
+                sourceItem: label
+                offset: 0.6
+            }
+            Label{
+                id: label
+                x: Theme.paddingMedium; y: Theme.paddingLarge
+                width: parent.width - Theme.paddingLarge
+                wrapMode: Text.WordWrap
+                textFormat: Text.StyledText
+                color: gridView.highlighted ? Theme.highlightColor : Theme.primaryColor
+                text: "<br/>"+name
+                font {
+                    pixelSize: Theme.fontSizeSmall
+                    family: Theme.fontFamilyHeading
+                }
+
+            }
+
+            onClicked :{
+                     pageStack.push(Qt.resolvedUrl("sexlist.qml"),{"sexcateid":id})
+            }
+
+        }
+
+        VerticalScrollDecorator {}
+
+    }
+
 }
-
-

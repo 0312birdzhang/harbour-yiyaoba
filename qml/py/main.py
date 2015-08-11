@@ -3,6 +3,7 @@ import pyotherside
 import subprocess
 import urllib
 import urllib.request
+import imghdr
 from basedir import *
 
 cachePath=XDG_CACHE_HOME+"/harbour-yiyaoba/yiyao/"
@@ -10,9 +11,9 @@ savePath=HOME+"/Pictures/save/Yiyao/"
 
 def saveImg(md5name,savename):
     try:
-        realpath=cachePath+md5name+".jpg"
+        realpath=cachePath+md5name
         isExis()
-        shutil.copy(realpath,savePath+savename)
+        shutil.copy(realpath,savePath+savename+"."+findImgType(realpath))
         pyotherside.send("1")
     except:
         pyotherside.send("-1")
@@ -36,6 +37,7 @@ def cacheImg(url,md5name):
         else:
             os.makedirs(cachePath)
         downloadImg(cachedFile,url)
+    #判断图片格式
     return cachedFile
 
 """
@@ -48,3 +50,8 @@ def downloadImg(downname,downurl):
 def clearImg():
     shutil.rmtree(cachePath)
     pyotherside.send("2")
+
+#判断图片格式
+def findImgType(cachedFile):
+    imgType = imghdr.what(cachedFile)
+    return imgType

@@ -15,8 +15,8 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>My Cover</source>
-        <translation>Mein Cover</translation>
+        <source>Yiyao</source>
+        <translation>健康百科</translation>
     </message>
 </context>
 <context>
@@ -62,6 +62,45 @@
     <message>
         <source>Settings</source>
         <translation>设置</translation>
+    </message>
+    <message>
+        <source>meinv</source>
+        <translation>美女图片</translation>
+    </message>
+</context>
+<context>
+    <name>SettingPage</name>
+    <message>
+        <source>About</source>
+        <translation>关于</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>版本</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation>作者</translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation>捐赠</translation>
+    </message>
+    <message>
+        <source>clear cache</source>
+        <translation>清理缓存</translation>
+    </message>
+    <message>
+        <source>Begin clear cache...</source>
+        <translation>开始清理缓存...</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>描述</translation>
+    </message>
+    <message>
+        <source>ADS</source>
+        <translation type="vanished">广告</translation>
     </message>
 </context>
 <context>
@@ -121,11 +160,14 @@
     </message>
 </context>
 <context>
-    <name>druglist</name>
+    <name>diseasedetail</name>
     <message>
-        <source>drugList</source>
-        <translation type="unfinished"></translation>
+        <source>tags :</source>
+        <translation type="unfinished">标签:</translation>
     </message>
+</context>
+<context>
+    <name>diseaselist</name>
     <message>
         <source>Hide Search</source>
         <translation type="unfinished">隐藏搜索框</translation>
@@ -133,6 +175,21 @@
     <message>
         <source>Show Search</source>
         <translation type="unfinished">显示搜索框</translation>
+    </message>
+</context>
+<context>
+    <name>druglist</name>
+    <message>
+        <source>drugList</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Hide Search</source>
+        <translation>隐藏搜索框</translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation>显示搜索框</translation>
     </message>
 </context>
 <context>
@@ -158,15 +215,22 @@
     <name>newslist</name>
     <message>
         <source>newsList</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Hide Search</source>
-        <translation type="unfinished">隐藏搜索框</translation>
+        <translation>隐藏搜索框</translation>
     </message>
     <message>
         <source>Show Search</source>
-        <translation type="unfinished">显示搜索框</translation>
+        <translation>显示搜索框</translation>
+    </message>
+</context>
+<context>
+    <name>sexlist</name>
+    <message>
+        <source>sexList</source>
+        <translation>妹子列表</translation>
     </message>
 </context>
 <context>

@@ -16,7 +16,11 @@
     <name>CoverPage</name>
     <message>
         <source>My Cover</source>
-        <translation>Mein Cover</translation>
+        <translation type="vanished">Mein Cover</translation>
+    </message>
+    <message>
+        <source>Yiyao</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -75,6 +79,10 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>meinv</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SecondPage</name>
@@ -85,6 +93,37 @@
     <message>
         <source>Item</source>
         <translation type="vanished">Element</translation>
+    </message>
+</context>
+<context>
+    <name>SettingPage</name>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>clear cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Begin clear cache...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -115,6 +154,24 @@
         <source>CookBook</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hide Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>diseasedetail</name>
+    <message>
+        <source>tags :</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>diseaselist</name>
     <message>
         <source>Hide Search</source>
         <translation type="unfinished"></translation>
@@ -170,6 +227,13 @@
     </message>
     <message>
         <source>Show Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>sexlist</name>
+    <message>
+        <source>sexList</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

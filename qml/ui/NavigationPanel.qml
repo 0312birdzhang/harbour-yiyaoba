@@ -126,18 +126,7 @@ Panel {
                     reloadIndex("qiyedaquan");
                 }
             }
-//            Label {
-//                anchors {
-//                    left: atMeWeibo.left
-//                    leftMargin: atMeWeibo.iconSize -2
-//                    top: atMeWeibo.top
-//                    topMargin: -3
-//                }
-//                opacity: "test" == "0" ? 0 : 1
-//                text: "test"
-//                font.pixelSize: atMeWeibo.iconSize/2
-//                color: Theme.secondaryHighlightColor
-//            }
+
         }
         Item {
             width: column.width
@@ -157,18 +146,7 @@ Panel {
                     reloadIndex("wenhuazhishi");
                 }
             }
-//            Label {
-//                anchors {
-//                    left: atMeComment.left
-//                    leftMargin: atMeComment.iconSize -2
-//                    top: atMeComment.top
-//                    topMargin: -3
-//                }
-//                opacity: "test" == "0" ? 0 : 1
-//                text: "test"
-//                font.pixelSize: atMeComment.iconSize/2
-//                color: Theme.secondaryHighlightColor
-//            }
+
         }
         Item {
             width: column.width
@@ -188,18 +166,7 @@ Panel {
                     reloadIndex("yaopinshipin");
                 }
             }
-//            Label {
-//                anchors {
-//                    left: comment.left
-//                    leftMargin: comment.iconSize -2
-//                    top: comment.top
-//                    topMargin: -3
-//                }
-//                opacity: "test" == "0" ? 0 : 1
-//                text: "test"
-//                font.pixelSize: comment.iconSize/2
-//                color: Theme.secondaryHighlightColor
-//            }
+
         }
         Item {
             width: column.width
@@ -219,18 +186,27 @@ Panel {
                     reloadIndex("xinwenzixun");
                 }
             }
-//            Label {
-//                anchors {
-//                    left: pm.left
-//                    leftMargin: pm.iconSize -2
-//                    top: pm.top
-//                    topMargin: -3
-//                }
-//                opacity: "test" == "0" ? 0 : 1
-//                text: "test"
-//                font.pixelSize: comment.iconSize/2
-//                color: Theme.secondaryHighlightColor
-//            }
+
+        }
+        Item {
+            width: column.width
+            height: Theme.itemSizeExtraSmall
+            HorizontalIconTextButton {
+                id: sex
+                anchors {
+                    left: parent.left
+                    leftMargin: Theme.paddingLarge
+                }
+                text: qsTr("meinv")
+                color: Theme.secondaryColor
+                spacing: Theme.paddingMedium
+                icon: "../pics/sex.png"
+                iconSize: Theme.itemSizeExtraSmall *2/3
+                onClicked: {
+                    reloadIndex("meinv");
+                }
+            }
+
         }
         Item {
             width: column.width
@@ -246,7 +222,7 @@ Panel {
                 icon: "../pics/shezhi.png"
                 iconSize: Theme.itemSizeExtraSmall *2/3
                 onClicked: {
-                   //reloadIndex("settings");
+                   pageStack.push(Qt.resolvedUrl("../pages/SettingPage.qml"));
                 }
             }
         }

@@ -51,6 +51,11 @@ OTHER_FILES += qml/harbour-yiyaoba.qml \
     qml/ask/*.qml \
     qml/news/*.qml \
     qml/drug/*.qml \
+    qml/components/LabelText.qml \
+    qml/pages/SettingPage.qml \
+    qml/sex/*.qml \
+    qml/js/Storge.js \
+    qml/disease/*.qml \
 
 
 # to disable building translations every time, comment out the

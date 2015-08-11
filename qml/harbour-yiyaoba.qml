@@ -41,6 +41,7 @@ ApplicationWindow
 
     id:applicationWindow
     property var notification;
+    property int openimg:-1
     property Page currentPage: pageStack.currentPage
     property string currentclass: "yiliaozhongxin"
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -68,7 +69,7 @@ ApplicationWindow
     ///////////// 登陆页面
     function toLoginPage() {
         popAttachedPages();
-        pageStack.replace(loginPageComponent);
+        //pageStack.replace(loginPageComponent);
     }
 
     function toIndexPage() {
@@ -247,7 +248,7 @@ Python{
                 sendMsg=qsTr("Unknown")
             }
 
-            //signalCenter.showMessage(sendMsg)
+            signalCenter.showMessage(sendMsg)
         }
     }
 
